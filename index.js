@@ -159,7 +159,7 @@ function printTicket(ticket) {
   ticketNode.className = "col-sm-6 col-md-4 col-lg-3";
 
   ticketNode.innerHTML = `
-  <div class="card text-center">
+  <div class="card text-center mb-5">
     <div class="card-header">
       Passagiere: ${ticket.getPassengerCount()}
     </div>
