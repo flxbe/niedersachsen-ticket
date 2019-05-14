@@ -2,44 +2,54 @@
  * Create a list of tickets which minimizes the total cost.
  *
  * Each ticket can have up to 5 passengers and 3 free children.
- *
- * - create enough tickets for all adults
- * - fill all free seats with children
- * - if possible: use empty seats for remaining children
- * - if not: first create new ticket, use all free seats
  */
 
 function calculateTickets(adults, children) {
-  let tickets = createTicketsForAdults(adults);
-  children = fillFreeSeatsWithChildren(tickets, children);
-  tickets = createTicketsForChildren(tickets, children);
-
-  return tickets;
-}
-
-function createTicketsForAdults(adults) {
   const tickets = [];
 
-  while (adults > 0) {
-    const ticket = new Ticket();
-    adults = fillSeatsWithAdults(ticket, adults);
+  while (emptySeats(tickets) < adults + children) {
+    console.log(tickets, emptySeats(tickets), adults, children);
+    const result = createMinimalTicket(adults, children);
 
-    tickets.push(ticket);
+    adults = result.adults;
+    children = result.children;
+    tickets.push(result.ticket);
   }
+
+  fillEmptySeats(tickets, adults, children);
 
   return tickets;
 }
 
-function fillFreeSeatsWithChildren(tickets, children) {
-  for (let ticket of tickets) {
-    if (children == 0) {
-      return children;
-    }
+function emptySeats(tickets) {
+  let emptySeats = 0;
 
-    children = fillFreeSeats(ticket, children);
+  for (let ticket of tickets) {
+    emptySeats += ticket.getEmptySeats();
   }
 
-  return children;
+  return emptySeats;
+}
+
+function createMinimalTicket(adults, children) {
+  assert(adults + children > 0);
+  const ticket = new Ticket();
+
+  if (adults > 0) {
+    ticket.addAdult();
+    adults--;
+  } else {
+    ticket.addChild();
+    children--;
+  }
+
+  children = fillFreeSeats(ticket, children);
+
+  return {
+    ticket,
+    adults,
+    children
+  };
 }
 
 function fillFreeSeats(ticket, children) {
@@ -51,8 +61,18 @@ function fillFreeSeats(ticket, children) {
   return children;
 }
 
-function fillSeatsWithAdults(ticket, adults) {
-  while (ticket.hasEmptySeat() && adults > 0) {
+function fillEmptySeats(tickets, adults, children) {
+  for (let ticket of tickets) {
+    adults = fillEmptySeatsWithAdults(ticket, adults);
+    children = fillEmptySeatsWithChildren(ticket, children);
+  }
+
+  assert(adults == 0);
+  assert(children == 0);
+}
+
+function fillEmptySeatsWithAdults(ticket, adults) {
+  while (!ticket.isFull() && adults > 0) {
     ticket.addAdult();
     adults--;
   }
@@ -60,43 +80,8 @@ function fillSeatsWithAdults(ticket, adults) {
   return adults;
 }
 
-function createTicketsForChildren(tickets, children) {
-  if (children == 0) {
-    return tickets;
-  }
-
-  if (tickets.length == 0) {
-    children = addChildTicket(tickets, children);
-  }
-
-  if (tickets)
-    while (children > 0) {
-      const lastTicket = tickets[tickets.length - 1];
-
-      if (lastTicket.getEmptySeats() >= children) {
-        children = fillSeatsWithChildren(lastTicket, children);
-      } else {
-        children = addChildTicket(tickets, children);
-        children = fillSeatsWithChildren(lastTicket, children);
-      }
-    }
-
-  return tickets;
-}
-
-function addChildTicket(tickets, children) {
-  const ticket = new Ticket();
-  ticket.addChild();
-  children--;
-  children = fillFreeSeats(ticket, children);
-
-  tickets.push(ticket);
-
-  return children;
-}
-
-function fillSeatsWithChildren(ticket, children) {
-  while (ticket.hasEmptySeat() && children > 0) {
+function fillEmptySeatsWithChildren(ticket, children) {
+  while (!ticket.isFull() && children > 0) {
     ticket.addChild();
     children--;
   }
@@ -131,6 +116,10 @@ class Ticket {
 
   isEmpty() {
     return this.seats.length == 0;
+  }
+
+  isFull() {
+    return this.getEmptySeats() == 0;
   }
 
   isSeatEmpty(index) {
