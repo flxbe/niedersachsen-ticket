@@ -1,0 +1,13 @@
+.navigation {
+  border-bottom: #f01414 5px solid;
+}
+
+div.header {
+  background-image: url("./header.jpg");
+  background-position: center bottom;
+  height: 400px;
+}
+
+div.content {
+  margin-top: -200px;
+}
