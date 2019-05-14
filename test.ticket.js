@@ -30,6 +30,16 @@ describe("Creating a minimal ticket", () => {
 });
 
 describe("filling tickets", () => {
+  describe("for 3 adults", () => {
+    const adults = 3;
+    const children = 0;
+    const tickets = calculateTickets(adults, children);
+
+    it("should use only one ticket", () => {
+      expect(tickets).to.have.lengthOf(1);
+    });
+  });
+
   describe("for 5 adults and 3 children", () => {
     const adults = 5;
     const children = 1;

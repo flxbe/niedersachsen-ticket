@@ -8,7 +8,6 @@ function calculateTickets(adults, children) {
   const tickets = [];
 
   while (emptySeats(tickets) < adults + children) {
-    console.log(tickets, emptySeats(tickets), adults, children);
     const result = createMinimalTicket(adults, children);
 
     adults = result.adults;
@@ -17,6 +16,8 @@ function calculateTickets(adults, children) {
   }
 
   fillEmptySeats(tickets, adults, children);
+
+  console.log(tickets);
 
   return tickets;
 }

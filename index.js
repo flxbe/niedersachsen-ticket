@@ -6,8 +6,8 @@ const summaryContainer = document.getElementById("summary");
 const ticketContainer = document.getElementById("tickets");
 
 inputForm.onsubmit = event => {
-  const adults = adultInput.value;
-  const children = childrenInput.value;
+  const adults = parseInt(adultInput.value);
+  const children = parseInt(childrenInput.value);
 
   const tickets = calculateTickets(adults, children);
   printTickets(tickets);
