@@ -70,7 +70,7 @@ function getFreeSeatDescription(ticket, index) {
   else return "Kind";
 }
 
-const BASE_PRICE = 25;
+const BASE_PRICE = 24;
 const INC_PRICE = 5;
 
 function getTicketPrice(ticket) {
