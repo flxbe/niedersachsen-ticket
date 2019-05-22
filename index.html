@@ -22,12 +22,14 @@
   </head>
   <body>
     <nav class="navigation navbar navbar-light bg-light">
-      <span class="navbar-brand mb-0 h1 text-dark font-weight-bold">
-        Niedersachsen-Ticket
-        <span class="font-weight-light text-secondary ml-1"
-          >Gruppenrechner</span
-        >
-      </span>
+      <div class="container">
+        <span class="navbar-brand mb-0 h1 text-dark font-weight-bold">
+          Niedersachsen-Ticket
+          <span class="font-weight-light text-secondary ml-1"
+            >Gruppenrechner</span
+          >
+        </span>
+      </div>
     </nav>
     <div class="header"></div>
 
@@ -39,35 +41,45 @@
             <div class="card-body">
               <h4 class="card-title text-dark">Gruppenstruktur</h4>
               <form id="form">
-                <div class="form-group">
-                  <label for="adults" class="text-secondary">Erwachsene</label>
-                  <input
-                    type="number"
-                    min="0"
-                    class="form-control"
-                    id="adults"
-                    placeholder="Anzahl"
-                    required
-                  />
+                <div class="row mt-4">
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="adults" class="text-secondary"
+                        >Erwachsene</label
+                      >
+                      <input
+                        type="number"
+                        min="0"
+                        class="form-control"
+                        id="adults"
+                        placeholder="Anzahl"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-group">
+                      <label for="children" class="text-secondary"
+                        >Kinder</label
+                      >
+                      <input
+                        type="number"
+                        min="0"
+                        class="form-control"
+                        id="children"
+                        placeholder="Anzahl"
+                        required
+                      />
+                    </div>
+                  </div>
                 </div>
 
-                <div class="form-group">
-                  <label for="children" class="text-secondary">Kinder</label>
-                  <input
-                    type="number"
-                    min="0"
-                    class="form-control"
-                    id="children"
-                    placeholder="Anzahl"
-                    required
-                  />
-                </div>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary mt-3">
                   Preis Berechnen
                 </button>
               </form>
             </div>
-            <div class="card-footer">
+            <div class="card-footer text-dark">
               Probleme oder Anregungen bitte an:
               <a href="mailto:f.bernhardt@codegewerk.de">
                 f.bernhardt@codegewerk.de
