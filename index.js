@@ -59,7 +59,7 @@ function printTicket(ticket) {
   return ticketNode;
 }
 
-function printNewTicket(ticket, ticketNumber) {
+function printNewTicket(ticket) {
   const ticketNode = document.createElement("div");
   ticketNode.className = "col-md-6 col-lg-4 mb-3";
 
@@ -70,7 +70,7 @@ function printNewTicket(ticket, ticketNumber) {
     <div class="card bg-light">
       <div class="card-body">
         <h5 class="text-dark">
-          1. Ticket
+          Ticket
           <span class="ml-1 font-weight-light text-secondary">${getTicketPrice(
             ticket
           )}€</span>
