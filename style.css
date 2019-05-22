@@ -20,7 +20,7 @@ div.header::after {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-#input-card {
+.box-shadow {
   box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 
