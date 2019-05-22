@@ -3,9 +3,25 @@
 }
 
 div.header {
-  background-image: url("./header.jpg");
-  background-position: center bottom;
-  height: 400px;
+  background-image: url("./img/kai-pilger-1255881-unsplash.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 350px;
+  position: relative;
+}
+
+div.header::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#input-card {
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 div.content {
