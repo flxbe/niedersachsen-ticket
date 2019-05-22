@@ -88,7 +88,10 @@ function printSummary(tickets) {
   }
 
   summaryContainer.innerHTML = `
-    <h3><span class="text-muted">Tickets:</span> ${tickets.length}</h3>
-    <h3><span class="text-muted">Preis:</span> ${price}€</h3>
+    <h3 class="text-dark">
+      <span class="badge badge-secondary mr-1">${tickets.length}</span>
+      Ticket${tickets.length > 1 ? "s" : ""}
+      <span class="text-secondary font-weight-light ml-1">${price}€</span>
+    </h3>
   `;
 }
