@@ -20,7 +20,7 @@ function printTickets(tickets) {
   ticketContainer.innerHTML = "";
 
   for (const ticket of tickets) {
-    ticketNode = printTicket(ticket);
+    ticketNode = printNewTicket(ticket);
     ticketContainer.appendChild(ticketNode);
   }
 }
@@ -57,6 +57,48 @@ function printTicket(ticket) {
   `;
 
   return ticketNode;
+}
+
+function printNewTicket(ticket, ticketNumber) {
+  const ticketNode = document.createElement("div");
+  ticketNode.className = "col-md-6 col-lg-4 mb-3";
+
+  adultsHtml = printAdult().repeat(ticket.getPassengerCount());
+  childsHtml = printChild().repeat(ticket.getFreePassengerCount());
+
+  ticketNode.innerHTML = `
+    <div class="card bg-light">
+      <div class="card-body">
+        <h5 class="text-dark">
+          1. Ticket
+          <span class="ml-1 font-weight-light text-secondary">${getTicketPrice(
+            ticket
+          )}€</span>
+        </h5>
+        <hr />
+        <div class="row">
+          <div class="col">
+            <h6 class="font-weight-light text-dark">${ticket.getPassengerCount()} Erwachsene</h6>
+            ${adultsHtml}
+          </div>
+          <div class="col">
+            <h6 class="font-weight-light text-dark">${ticket.getFreePassengerCount()} Kinder</h6>
+            ${childsHtml}
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  return ticketNode;
+}
+
+function printAdult() {
+  return `<img class="passenger-icon" src="./icons/iconfinder_user_1608727.png"/>`;
+}
+
+function printChild() {
+  return `<img class="passenger-icon" src="./icons/iconfinder_child_1608628.png"/>`;
 }
 
 function getSeatDescription(ticket, index) {

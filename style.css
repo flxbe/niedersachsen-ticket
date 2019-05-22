@@ -27,3 +27,8 @@ div.header::after {
 div.content {
   margin-top: -200px;
 }
+
+img.passenger-icon {
+  width: 25px;
+  height: 25px;
+}
