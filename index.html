@@ -20,95 +20,97 @@
 
     <title>Niedersachsen-Ticket Gruppenrechner</title>
   </head>
-  <body>
-    <nav class="navigation navbar navbar-light bg-light navbar-expand">
-      <div class="container">
-        <span class="navbar-brand mb-0 h1 text-dark font-weight-bold">
-          Niedersachsen-Ticket
-          <span class="font-weight-light text-secondary ml-1"
-            >Gruppenrechner</span
-          >
-        </span>
-      </div>
-    </nav>
-    <div class="header"></div>
+  <body class="d-flex flex-column justify-content-between">
+    <main>
+      <nav class="navigation navbar navbar-light bg-light navbar-expand">
+        <div class="container">
+          <span class="navbar-brand mb-0 h1 text-dark font-weight-bold">
+            Niedersachsen-Ticket
+            <span class="font-weight-light text-secondary ml-1"
+              >Gruppenrechner</span
+            >
+          </span>
+        </div>
+      </nav>
+      <div class="header"></div>
 
-    <!-- Form -->
-    <div class="container mb-5 content">
-      <div class="row justify-content-center">
-        <div class="col-sm-10 col-md-8 col-lg-6">
-          <div class="card box-shadow">
-            <div class="card-body">
-              <h4 class="card-title text-dark">Gruppenstruktur</h4>
-              <form id="form">
-                <div class="row mt-4">
-                  <div class="col">
-                    <div class="form-group">
-                      <label for="adults" class="text-secondary"
-                        >Erwachsene</label
-                      >
-                      <input
-                        type="number"
-                        min="0"
-                        class="form-control"
-                        id="adults"
-                        placeholder="Anzahl"
-                        required
-                      />
+      <!-- Form -->
+      <div class="container mb-5 content">
+        <div class="row justify-content-center">
+          <div class="col-sm-10 col-md-8 col-lg-6">
+            <div class="card box-shadow">
+              <div class="card-body">
+                <h4 class="card-title text-dark">Gruppenstruktur</h4>
+                <form id="form">
+                  <div class="row mt-4">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="adults" class="text-secondary"
+                          >Erwachsene</label
+                        >
+                        <input
+                          type="number"
+                          min="0"
+                          class="form-control"
+                          id="adults"
+                          placeholder="Anzahl"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="children" class="text-secondary"
+                          >Kinder</label
+                        >
+                        <input
+                          type="number"
+                          min="0"
+                          class="form-control"
+                          id="children"
+                          placeholder="Anzahl"
+                          required
+                        />
+                      </div>
                     </div>
                   </div>
-                  <div class="col">
-                    <div class="form-group">
-                      <label for="children" class="text-secondary"
-                        >Kinder</label
-                      >
-                      <input
-                        type="number"
-                        min="0"
-                        class="form-control"
-                        id="children"
-                        placeholder="Anzahl"
-                        required
-                      />
-                    </div>
-                  </div>
-                </div>
 
-                <button type="submit" class="btn btn-primary mt-3">
-                  Preis Berechnen
-                </button>
-              </form>
-            </div>
-            <div class="card-footer text-dark">
-              Probleme oder Anregungen bitte an:
-              <a href="mailto:f.bernhardt@codegewerk.de">
-                f.bernhardt@codegewerk.de
-              </a>
+                  <button type="submit" class="btn btn-primary mt-3">
+                    Preis Berechnen
+                  </button>
+                </form>
+              </div>
+              <div class="card-footer text-dark">
+                Probleme oder Anregungen bitte an:
+                <a href="mailto:f.bernhardt@codegewerk.de">
+                  f.bernhardt@codegewerk.de
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Summary -->
-    <div class="container mb-5" id="summary">
-      <h4 class="text-secondary font-weight-light">
-        noch keine
-        <span class="text-dark font-weight-normal">Suchergebnisse</span>
-        ...
-      </h4>
-    </div>
+      <!-- Summary -->
+      <div class="container mb-5" id="summary">
+        <h4 class="text-secondary font-weight-light">
+          noch keine
+          <span class="text-dark font-weight-normal">Suchergebnisse</span>
+          ...
+        </h4>
+      </div>
 
-    <!-- Tickets -->
-    <div class="container mb-5">
-      <div class="row" id="tickets"></div>
-    </div>
+      <!-- Tickets -->
+      <div class="container mb-5">
+        <div class="row" id="tickets"></div>
+      </div>
+    </main>
 
     <!-- Footer -->
     <footer class="bg-dark py-4">
       <div class="container d-flex justify-content-between">
         <p class="text-light font-weight-light small mb-0">
-          <span class="font-weight-bold">2019</span>
+          <span class="font-weight-bold mr-1">2019</span>
           Code released under the
           <a href="#" class="text-white font-weight-bold">MIT License</a>.
         </p>
