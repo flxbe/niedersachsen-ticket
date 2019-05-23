@@ -20,46 +20,12 @@ function printTickets(tickets) {
   ticketContainer.innerHTML = "";
 
   for (const ticket of tickets) {
-    ticketNode = printNewTicket(ticket);
+    ticketNode = printTicket(ticket);
     ticketContainer.appendChild(ticketNode);
   }
 }
 
 function printTicket(ticket) {
-  const ticketNode = document.createElement("div");
-  ticketNode.className = "col-sm-6 col-md-4 col-lg-3";
-
-  ticketNode.innerHTML = `
-  <div class="card text-center mb-5">
-    <div class="card-header">
-      Passagiere: ${ticket.getPassengerCount()}
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">${getSeatDescription(ticket, 0)}</li>
-      <li class="list-group-item">${getSeatDescription(ticket, 1)}</li>
-      <li class="list-group-item">${getSeatDescription(ticket, 2)}</li>
-      <li class="list-group-item">${getSeatDescription(ticket, 3)}</li>
-      <li class="list-group-item">${getSeatDescription(ticket, 4)}</li>
-    </ul>
-
-    <div class="card-header">
-      Gratisfahrer: ${ticket.getFreePassengerCount()}
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">${getFreeSeatDescription(ticket, 0)}</li>
-      <li class="list-group-item">${getFreeSeatDescription(ticket, 1)}</li>
-      <li class="list-group-item">${getFreeSeatDescription(ticket, 2)}</li>
-    </ul>
-    <div class="card-footer text-muted">
-      Preis: ${getTicketPrice(ticket)}€
-    </div>
-  </div>
-  `;
-
-  return ticketNode;
-}
-
-function printNewTicket(ticket) {
   const ticketNode = document.createElement("div");
   ticketNode.className = "col-md-6 col-lg-4 mb-3";
 
