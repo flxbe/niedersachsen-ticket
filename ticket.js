@@ -91,7 +91,7 @@ function fillEmptySeatsWithChildren(ticket, children) {
 }
 
 const ADULT = "ADULT";
-const CHILD = "CHILDREN";
+const CHILD = "CHILD";
 
 class Ticket {
   constructor() {

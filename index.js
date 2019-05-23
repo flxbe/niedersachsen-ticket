@@ -63,8 +63,15 @@ function printNewTicket(ticket) {
   const ticketNode = document.createElement("div");
   ticketNode.className = "col-md-6 col-lg-4 mb-3";
 
-  adultsHtml = printAdult().repeat(ticket.getPassengerCount());
-  childsHtml = printChild().repeat(ticket.getFreePassengerCount());
+  const normalPassengersHtml = ticket.seats
+    .map(function(seat) {
+      if (seat === "CHILD") return printChild();
+      return printAdult();
+    })
+    .join("");
+  const freePassengersHtml = printChild().repeat(
+    ticket.getFreePassengerCount()
+  );
 
   ticketNode.innerHTML = `
     <div class="card bg-light">
@@ -78,12 +85,12 @@ function printNewTicket(ticket) {
         <hr />
         <div class="row">
           <div class="col">
-            <h6 class="font-weight-light text-dark">${ticket.getPassengerCount()} Reisende</h6>
-            ${adultsHtml}
+            <h6 class="font-weight-light text-dark">${ticket.getPassengerCount()} Vollzahler</h6>
+            ${normalPassengersHtml}
           </div>
           <div class="col">
             <h6 class="font-weight-light text-dark">${ticket.getFreePassengerCount()} Gratisplätze</h6>
-            ${childsHtml}
+            ${freePassengersHtml}
           </div>
         </div>
       </div>
