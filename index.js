@@ -27,36 +27,51 @@ function printTickets(tickets) {
 
 function printTicket(ticket) {
   const ticketNode = document.createElement("div");
-  ticketNode.className = "col-sm-6 col-md-4 col-lg-3";
+  ticketNode.className = "col-md-6 col-lg-4 mb-3";
+
+  const normalPassengersHtml = ticket.seats
+    .map(function(seat) {
+      if (seat === "CHILD") return printChild();
+      return printAdult();
+    })
+    .join("");
+  const freePassengersHtml = printChild().repeat(
+    ticket.getFreePassengerCount()
+  );
 
   ticketNode.innerHTML = `
-  <div class="card text-center mb-5">
-    <div class="card-header">
-      Passagiere: ${ticket.getPassengerCount()}
+    <div class="card bg-light">
+      <div class="card-body">
+        <h5 class="text-dark">
+          Ticket
+          <span class="ml-1 font-weight-light text-secondary">${getTicketPrice(
+            ticket
+          )}€</span>
+        </h5>
+        <hr />
+        <div class="row">
+          <div class="col">
+            <h6 class="font-weight-light text-dark">${ticket.getPassengerCount()} Vollzahler</h6>
+            ${normalPassengersHtml}
+          </div>
+          <div class="col">
+            <h6 class="font-weight-light text-dark">${ticket.getFreePassengerCount()} Gratisplätze</h6>
+            ${freePassengersHtml}
+          </div>
+        </div>
+      </div>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">${getSeatDescription(ticket, 0)}</li>
-      <li class="list-group-item">${getSeatDescription(ticket, 1)}</li>
-      <li class="list-group-item">${getSeatDescription(ticket, 2)}</li>
-      <li class="list-group-item">${getSeatDescription(ticket, 3)}</li>
-      <li class="list-group-item">${getSeatDescription(ticket, 4)}</li>
-    </ul>
-
-    <div class="card-header">
-      Gratisfahrer: ${ticket.getFreePassengerCount()}
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">${getFreeSeatDescription(ticket, 0)}</li>
-      <li class="list-group-item">${getFreeSeatDescription(ticket, 1)}</li>
-      <li class="list-group-item">${getFreeSeatDescription(ticket, 2)}</li>
-    </ul>
-    <div class="card-footer text-muted">
-      Preis: ${getTicketPrice(ticket)}€
-    </div>
-  </div>
   `;
 
   return ticketNode;
+}
+
+function printAdult() {
+  return `<img class="passenger-icon" src="./icons/iconfinder_user_1608727.png"/>`;
+}
+
+function printChild() {
+  return `<img class="passenger-icon" src="./icons/iconfinder_child_1608628.png"/>`;
 }
 
 function getSeatDescription(ticket, index) {
@@ -88,7 +103,10 @@ function printSummary(tickets) {
   }
 
   summaryContainer.innerHTML = `
-    <h3><span class="text-muted">Tickets:</span> ${tickets.length}</h3>
-    <h3><span class="text-muted">Preis:</span> ${price}€</h3>
+    <h3 class="text-dark">
+      <span class="badge badge-secondary mr-1">${tickets.length}</span>
+      Ticket${tickets.length > 1 ? "s" : ""}
+      <span class="text-secondary font-weight-light ml-1">${price}€</span>
+    </h3>
   `;
 }
