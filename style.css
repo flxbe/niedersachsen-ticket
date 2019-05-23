@@ -6,7 +6,11 @@ body {
 }
 
 .navigation {
-  border-bottom: #f01414 5px solid;
+  border-bottom: 5px solid;
+}
+
+footer {
+  border-top: 5px solid;
 }
 
 div.header {
