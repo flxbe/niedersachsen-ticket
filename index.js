@@ -78,11 +78,11 @@ function printNewTicket(ticket) {
         <hr />
         <div class="row">
           <div class="col">
-            <h6 class="font-weight-light text-dark">${ticket.getPassengerCount()} Erwachsene</h6>
+            <h6 class="font-weight-light text-dark">${ticket.getPassengerCount()} Reisende</h6>
             ${adultsHtml}
           </div>
           <div class="col">
-            <h6 class="font-weight-light text-dark">${ticket.getFreePassengerCount()} Kinder</h6>
+            <h6 class="font-weight-light text-dark">${ticket.getFreePassengerCount()} Gratisplätze</h6>
             ${childsHtml}
           </div>
         </div>
