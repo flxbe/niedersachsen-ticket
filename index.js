@@ -104,7 +104,7 @@ function printSummary(tickets) {
 
   summaryContainer.innerHTML = `
     <h3 class="text-dark">
-      <span class="badge badge-secondary mr-1">${tickets.length}</span>
+      <span class="badge badge-danger mr-1">${tickets.length}</span>
       Ticket${tickets.length > 1 ? "s" : ""}
       <span class="text-secondary font-weight-light ml-1">${price}€</span>
     </h3>
