@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 5 60 90.968" width="60" height="90.968" xmlns="http://www.w3.org/2000/svg">
+  <g transform="matrix(0.193548, 0, 0, 0.193548, 0, 4.032252)">
+    <g>
+      <rect fill="#000" height="330" rx="65" width="270" x="20" y="40"/>
+      <circle cx="135" cy="20" fill="#000" r="15"/>
+      <circle cx="175" cy="20" fill="#000" r="15"/>
+      <polygon fill="#000" points="0 475 70 360 240 360 310 475 265 475 220 400 90 400 45 475"/>
+    </g>
+    <g>
+      <rect fill="#fff" height="100" rx="30" width="200" x="55" y="100"/>
+      <rect fill="#fff" height="40" rx="10" width="80" x="115" y="50"/>
+      <circle cx="85" cy="315" fill="#fff" r="25"/>
+      <circle cx="225" cy="315" fill="#fff" r="25"/>
+    </g>
+  </g>
+</svg>
