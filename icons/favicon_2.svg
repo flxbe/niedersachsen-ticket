@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 100 100" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <rect style="fill: rgb(52, 58, 64);" x="0" y="0" width="100" height="100" rx="10" ry="10"/>
+  <g transform="matrix(0.16129, 0, 0, 0.16129, 25.00005, 11.290399)">
+    <g>
+      <rect height="330" rx="65" width="270" x="20" y="40" style="fill: rgb(255, 255, 255);"/>
+      <circle cx="135" cy="20" r="15" style="visibility: hidden; fill: rgb(255, 255, 255);"/>
+      <circle cx="175" cy="20" r="15" style="visibility: hidden; fill: rgb(255, 255, 255);"/>
+      <polygon points="0 475 70 360 240 360 310 475 265 475 220 400 90 400 45 475" style="fill: rgb(255, 255, 255);"/>
+    </g>
+    <g>
+      <rect height="100" rx="30" width="200" x="55" y="100" style="fill: rgb(52, 58, 64);"/>
+      <rect height="40" rx="10" width="80" x="115" y="50" style="visibility: hidden; fill: rgb(52, 58, 64);"/>
+      <circle cx="85" cy="315" r="25" style="fill: rgb(52, 58, 64);"/>
+      <circle cx="225" cy="315" r="25" style="fill: rgb(52, 58, 64);"/>
+    </g>
+  </g>
+  <path d="M 103.926 -12.002 L 80.531 11.395 L 97.136 27.998 L 120.531 4.601 L 120.531 -11.997 L 103.926 -12.002 Z M 116.088 -4.039 C 115.118 -3.069 113.543 -3.069 112.568 -4.038 C 111.598 -5.013 111.598 -6.587 112.567 -7.562 C 113.54 -8.533 115.118 -8.533 116.088 -7.563 C 117.063 -6.586 117.064 -5.014 116.088 -4.039 Z" style="fill: rgb(220, 53, 69);" transform="matrix(0, -1, 1, 0, 66.408997, 134.653)"/>
+</svg>
