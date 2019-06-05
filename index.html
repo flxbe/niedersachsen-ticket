@@ -22,7 +22,9 @@
   </head>
   <body class="d-flex flex-column justify-content-between">
     <main>
-      <nav class="navigation navbar navbar-light bg-light navbar-expand">
+      <nav
+        class="navigation navbar navbar-light bg-light navbar-expand border-danger"
+      >
         <div class="container">
           <span class="navbar-brand mb-0 h1 text-dark font-weight-bold">
             Niedersachsen-Ticket
@@ -76,10 +78,7 @@
                     </div>
                   </div>
 
-                  <button
-                    type="submit"
-                    class="btn btn-block btn-secondary mt-3"
-                  >
+                  <button type="submit" class="btn btn-block btn-danger mt-3">
                     Preis Berechnen
                   </button>
                 </form>
@@ -108,10 +107,42 @@
       <div class="container mb-5">
         <div class="row" id="tickets"></div>
       </div>
+
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-7 col-xl-5">
+            <a
+              href="https://codegewerk.de"
+              target="_blank"
+              class="text-decoration-none"
+            >
+              <div class="jumbotron p-4 mb-2">
+                <div class="media">
+                  <img
+                    width="130px"
+                    src="./img/scripture_orange-gray_350x262_bg-white.png"
+                    class="mr-4"
+                    alt="codegewerk-icon"
+                  />
+                  <div class="media-body">
+                    <p class="font-weight-light text-dark mb-1">
+                      <span class="font-weight-bold">CodeGewerk.</span>
+                      Beratung, Entwicklung und Design made in Magdeburg
+                    </p>
+                    <small class="font-weight-light text-secondary"
+                      >Anzeige</small
+                    >
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-dark py-3">
+    <footer class="bg-dark py-3 border-danger">
       <div class="container d-flex justify-content-between">
         <p class="text-light font-weight-light small mb-0">
           <span class="font-weight-bold">2019</span>
