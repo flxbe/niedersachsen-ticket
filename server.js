@@ -1,16 +1,19 @@
-const endpoint = "http://localhost:8000/";
+const endpoint = setEndpoint();
 
-async function request() {
-  const url = endpoint;
+async function postDeviceInfo() {
+  const url = endpoint + "server/";
 
-  const result = await fetch(url, {
-    method: "GET",
-    // in mode no-cors the response object will always have status: 0, ok: false and message: '', https://stackoverflow.com/questions/40182785/why-fetch-return-a-response-with-status-0
-    mode: "no-cors",
+  let data = { platform: navigator.platform, userAgent: navigator.userAgent };
+
+  return await fetch(url, {
+    method: "POST",
     headers: {
       "Content-Type": "application/json"
-    }
+    },
+    body: JSON.stringify(data)
   });
+}
 
-  return result;
+function setEndpoint() {
+  return location.protocol + "//" + location.host + "/";
 }
