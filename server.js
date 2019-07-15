@@ -1,4 +1,5 @@
-const endpoint = setEndpoint();
+const endpoint = env.APP_URL;
+const fetchMode = env.FETCH_MODE || "same-origin";
 
 async function postDeviceInfo() {
   const url = endpoint + "server/";
@@ -7,6 +8,7 @@ async function postDeviceInfo() {
 
   return await fetch(url, {
     method: "POST",
+    mode: fetchMode,
     headers: {
       "Content-Type": "application/json"
     },
