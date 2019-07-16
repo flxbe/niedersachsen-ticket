@@ -19,12 +19,6 @@ if ($http_referer) {
         file_put_contents('data.csv', dataToCsvLine($decoded_post_data), FILE_APPEND | LOCK_EX);
 
         http_response_code(200);
-
-        //header('Content-Type: application/json');
-        //http_response_code(200);
-        //header('Status: 200');
-        //echo '{"status":"ok"}';
-        //echo json_encode(["status" => 200, "message" => "success"]);
     }
 }
 
@@ -32,5 +26,7 @@ http_response_code(403);
 
 function dataToCsvLine($data)
 {
-    return "\"" . $data['platform'] . "\", \"" . $data['userAgent'] . "\"\n";
+    $now = new DateTime();
+
+    return "\"" . $now->format('Y-m-d, H:i:s') . "\", \"" . $data['platform'] . "\", \"" . $data['userAgent'] . "\"\n";
 }

@@ -1,6 +1,6 @@
 <?php
 $variables = [
-    'ALLOWED_CALLING_URL' => 'https://nst2.codegewerk.de/',
+    'ALLOWED_CALLING_URL' => 'https://flxbe.github.io/',
 ];
 foreach ($variables as $key => $value) {
     putenv("$key=$value");
