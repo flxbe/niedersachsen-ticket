@@ -1,1 +1,1 @@
-env = { APP_URL: "", mode: "no-cors" };
+env = { APP_URL: "https://nst.codegewerk.de/", mode: "no-cors" };

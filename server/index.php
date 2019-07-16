@@ -6,26 +6,29 @@ if (file_exists('../env.php')) {
     include '../env.php';
 }
 
-if ($_SERVER['HTTP_HOST'] === getenv('APP_HOST')) {
+$http_referer = $_SERVER['HTTP_REFERER'];
 
-    $post_data = file_get_contents('php://input');
+if ($http_referer) {
+    if ($http_referer === getenv('APP_URL')) {
 
-    $decoded_post_data = (array) json_decode($post_data);
-    print_r($decoded_post_data);
+        $post_data = file_get_contents('php://input');
 
-    file_put_contents('data.csv', dataToCsvLine($decoded_post_data), FILE_APPEND | LOCK_EX);
+        $decoded_post_data = (array) json_decode($post_data);
+        print_r($decoded_post_data);
 
-    http_response_code(200);
+        file_put_contents('data.csv', dataToCsvLine($decoded_post_data), FILE_APPEND | LOCK_EX);
 
-//header('Content-Type: application/json');
-    //http_response_code(200);
-    //header('Status: 200');
-    //echo '{"status":"ok"}';
-    //echo json_encode(["status" => 200, "message" => "success"]);
+        http_response_code(200);
 
-} else {
-    http_response_code(403);
+        //header('Content-Type: application/json');
+        //http_response_code(200);
+        //header('Status: 200');
+        //echo '{"status":"ok"}';
+        //echo json_encode(["status" => 200, "message" => "success"]);
+    }
 }
+
+http_response_code(403);
 
 function dataToCsvLine($data)
 {
