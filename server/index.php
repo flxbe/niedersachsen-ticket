@@ -9,7 +9,7 @@ if (file_exists('../env.php')) {
 $http_referer = $_SERVER['HTTP_REFERER'];
 
 if ($http_referer) {
-    if ($http_referer === getenv('APP_URL')) {
+    if ($http_referer === getenv('ALLOWED_CALLING_URL')) {
 
         $post_data = file_get_contents('php://input');
 

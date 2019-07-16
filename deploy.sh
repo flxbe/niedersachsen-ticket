@@ -18,7 +18,7 @@ cp -R img/ $TEMP_DIR/img/
 cp env.prod.js $TEMP_DIR/env.js
 cp env.prod.php $TEMP_DIR/env.php
 
-#ssh $SSH_USERNAME_HOST mkdir $TEMP_DIR/
+# transfer data to server
 scp -r $TEMP_DIR/ $SSH_USERNAME_HOST:
 
 rm -R $TEMP_DIR/

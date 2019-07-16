@@ -1,4 +1,4 @@
-const endpoint = env.APP_URL;
+const endpoint = env.ENDPOINT_URL;
 const fetchMode = env.FETCH_MODE || "same-origin";
 
 async function postDeviceInfo() {

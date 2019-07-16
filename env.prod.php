@@ -1,6 +1,6 @@
 <?php
 $variables = [
-    'APP_URL' => 'https://nst.codegewerk.de/',
+    'ALLOWED_CALLING_URL' => 'https://nst2.codegewerk.de/',
 ];
 foreach ($variables as $key => $value) {
     putenv("$key=$value");
