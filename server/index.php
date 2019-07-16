@@ -7,9 +7,10 @@ if (file_exists('../env.php')) {
 }
 
 $http_referer = $_SERVER['HTTP_REFERER'];
+$allowed_calling_url = getenv('ALLOWED_CALLING_URL');
 
 if ($http_referer) {
-    if ($http_referer === getenv('ALLOWED_CALLING_URL')) {
+    if (substr($http_referer, 0, strlen($allowed_calling_url)) === $allowed_calling_url) {
 
         $post_data = file_get_contents('php://input');
 
