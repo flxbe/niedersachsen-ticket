@@ -13,6 +13,8 @@ inputForm.onsubmit = event => {
   printTickets(tickets);
   printSummary(tickets);
 
+  new AnalyticsService().sendData({ adults: adults, children: children });
+
   return false;
 };
 
