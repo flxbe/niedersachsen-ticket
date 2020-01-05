@@ -5,6 +5,8 @@ const childrenInput = document.getElementById("children");
 const summaryContainer = document.getElementById("summary");
 const ticketContainer = document.getElementById("tickets");
 
+postDeviceInfo();
+
 inputForm.onsubmit = event => {
   const adults = parseInt(adultInput.value);
   const children = parseInt(childrenInput.value);
