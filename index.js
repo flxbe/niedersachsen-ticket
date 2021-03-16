@@ -5,7 +5,7 @@ const childrenInput = document.getElementById("children");
 const summaryContainer = document.getElementById("summary");
 const ticketContainer = document.getElementById("tickets");
 
-inputForm.onsubmit = event => {
+inputForm.onsubmit = (event) => {
   const adults = parseInt(adultInput.value);
   const children = parseInt(childrenInput.value);
 
@@ -32,7 +32,7 @@ function printTicket(ticket) {
   ticketNode.className = "col-md-6 col-lg-4 mb-3";
 
   const normalPassengersHtml = ticket.seats
-    .map(function(seat) {
+    .map(function (seat) {
       if (seat === "CHILD") return printChild();
       return printAdult();
     })
@@ -87,7 +87,7 @@ function getFreeSeatDescription(ticket, index) {
   else return "Kind";
 }
 
-const BASE_PRICE = 24;
+const BASE_PRICE = 23;
 const INC_PRICE = 5;
 
 function getTicketPrice(ticket) {

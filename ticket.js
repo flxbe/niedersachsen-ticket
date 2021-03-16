@@ -49,7 +49,7 @@ function createMinimalTicket(adults, children) {
   return {
     ticket,
     adults,
-    children
+    children,
   };
 }
 
