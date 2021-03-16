@@ -1,6 +1,7 @@
 const inputForm = document.getElementById("form");
 const adultInput = document.getElementById("adults");
 const childrenInput = document.getElementById("children");
+const typeInputs = document.getElementsByName("type");
 
 const summaryContainer = document.getElementById("summary");
 const ticketContainer = document.getElementById("tickets");
@@ -8,26 +9,38 @@ const ticketContainer = document.getElementById("tickets");
 inputForm.onsubmit = (event) => {
   const adults = parseInt(adultInput.value);
   const children = parseInt(childrenInput.value);
+  const type = getType();
 
   const tickets = calculateTickets(adults, children);
-  printTickets(tickets);
-  printSummary(tickets);
+  printSummary(tickets, type);
+  printTickets(tickets, type);
 
   new AnalyticsService().sendData({ adults: adults, children: children });
 
   return false;
 };
 
-function printTickets(tickets) {
+function getType() {
+  for (const typeInput of typeInputs) {
+    if (typeInput.checked) {
+      return typeInput.value;
+    }
+  }
+
+  console.error("Could not find active typeInput");
+  return "default";
+}
+
+function printTickets(tickets, type) {
   ticketContainer.innerHTML = "";
 
   for (const ticket of tickets) {
-    ticketNode = printTicket(ticket);
+    ticketNode = printTicket(ticket, type);
     ticketContainer.appendChild(ticketNode);
   }
 }
 
-function printTicket(ticket) {
+function printTicket(ticket, type) {
   const ticketNode = document.createElement("div");
   ticketNode.className = "col-md-6 col-lg-4 mb-3";
 
@@ -47,7 +60,8 @@ function printTicket(ticket) {
         <h5 class="text-dark">
           Ticket
           <span class="ml-1 font-weight-light text-secondary">${getTicketPrice(
-            ticket
+            ticket,
+            type
           )}€</span>
         </h5>
         <hr />
@@ -87,28 +101,47 @@ function getFreeSeatDescription(ticket, index) {
   else return "Kind";
 }
 
-const BASE_PRICE = 23;
-const INC_PRICE = 5;
+const BASE_PRICE = {
+  default: 23,
+  plus1: 27,
+  plus2: 29,
+};
 
-function getTicketPrice(ticket) {
+const INC_PRICE = {
+  default: 5,
+  plus1: 6,
+  plus2: 6.5,
+};
+
+function getTicketPrice(ticket, type) {
   if (ticket.isEmpty()) return 0;
   else {
-    return BASE_PRICE + INC_PRICE * (ticket.getPassengerCount() - 1);
+    return (
+      BASE_PRICE[type] + INC_PRICE[type] * (ticket.getPassengerCount() - 1)
+    );
   }
 }
 
-function printSummary(tickets) {
+function printSummary(tickets, type) {
   let price = 0;
 
   for (let ticket of tickets) {
-    price += getTicketPrice(ticket);
+    price += getTicketPrice(ticket, type);
   }
+
+  price = price.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
 
   summaryContainer.innerHTML = `
     <h3 class="text-dark">
       <span class="badge badge-danger mr-1">${tickets.length}</span>
       Ticket${tickets.length > 1 ? "s" : ""}
-      <span class="text-secondary font-weight-light ml-1">${price}€</span>
+      <span class="text-secondary font-weight-light ml-1">${printCurrency(
+        price
+      )}</span>
     </h3>
   `;
+}
+
+function printCurrency(value) {
+  return value.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
 }
