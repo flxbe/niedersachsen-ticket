@@ -52,15 +52,16 @@ function printTicket(ticket, type) {
     ticket.getFreePassengerCount()
   );
 
+  const ticketPrice = getTicketPrice(ticket, type);
+
   ticketNode.innerHTML = `
     <div class="card bg-light">
       <div class="card-body">
         <h5 class="text-dark">
           Ticket
-          <span class="ml-1 font-weight-light text-secondary">${getTicketPrice(
-            ticket,
-            type
-          )}€</span>
+          <span class="ml-1 font-weight-light text-secondary">${formatCurrency(
+            ticketPrice
+          )}</span>
         </h5>
         <hr />
         <div class="row">
@@ -127,19 +128,17 @@ function printSummary(tickets, type) {
     price += getTicketPrice(ticket, type);
   }
 
-  price = price.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
-
   summaryContainer.innerHTML = `
     <h3 class="text-dark">
       <span class="badge badge-danger mr-1">${tickets.length}</span>
       Ticket${tickets.length > 1 ? "s" : ""}
-      <span class="text-secondary font-weight-light ml-1">${printCurrency(
+      <span class="text-secondary font-weight-light ml-1">${formatCurrency(
         price
       )}</span>
     </h3>
   `;
 }
 
-function printCurrency(value) {
+function formatCurrency(value) {
   return value.toLocaleString("de-DE", { style: "currency", currency: "EUR" });
 }
