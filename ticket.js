@@ -17,8 +17,6 @@ function calculateTickets(adults, children) {
 
   fillEmptySeats(tickets, adults, children);
 
-  console.log(tickets);
-
   return tickets;
 }
 

@@ -15,8 +15,6 @@ inputForm.onsubmit = (event) => {
   printSummary(tickets, type);
   printTickets(tickets, type);
 
-  new AnalyticsService().sendData({ adults: adults, children: children });
-
   return false;
 };
 
