@@ -89,17 +89,6 @@ function printChild() {
   return `<img class="passenger-icon" src="./icons/iconfinder_child_1608628.png"/>`;
 }
 
-function getSeatDescription(ticket, index) {
-  if (ticket.isSeatEmpty(index)) return "--------";
-  else if (ticket.isAdultSeat(index)) return "Erwachsener";
-  else return "Kind";
-}
-
-function getFreeSeatDescription(ticket, index) {
-  if (ticket.isFreeSeatEmpty(index)) return "--------";
-  else return "Kind";
-}
-
 const BASE_PRICE = {
   default: 24,
   plusOstharz: 33,
