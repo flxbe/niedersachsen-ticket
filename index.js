@@ -100,15 +100,15 @@ function getFreeSeatDescription(ticket, index) {
 }
 
 const BASE_PRICE = {
-  default: 23,
-  plus1: 27,
-  plus2: 29,
+  default: 24,
+  plusOstharz: 33,
+  plusGroningen: 30,
 };
 
 const INC_PRICE = {
   default: 5,
-  plus1: 6,
-  plus2: 6.5,
+  plusOstharz: 9,
+  plusGroningen: 6.5,
 };
 
 function getTicketPrice(ticket, type) {
