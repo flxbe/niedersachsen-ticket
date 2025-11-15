@@ -90,15 +90,15 @@ function printChild() {
 }
 
 const BASE_PRICE = {
-  default: 24,
-  plusOstharz: 33,
-  plusGroningen: 30,
+  default: 28,
+  plusOstharz: 39,
+  plusGroningen: 34,
 };
 
 const INC_PRICE = {
-  default: 5,
-  plusOstharz: 9,
-  plusGroningen: 6.5,
+  default: 7,
+  plusOstharz: 11,
+  plusGroningen: 8.5,
 };
 
 function getTicketPrice(ticket, type) {
